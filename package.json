@@ -1,0 +1,37 @@
+{
+  "name": "neulion",
+  "author": "Beau Sorensen <mail@beausorensen.com> (http://github.com/sorensen)",
+  "version": "1.0.0",
+  "description": "Neulion API",
+  "keywords": [
+    "neulion",
+    "api",
+    "sdk"
+  ],
+  "licence": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/majorleaguesoccer/neulion.git"
+  },
+  "engines": {
+    "node": ">=4.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run hint && ./node_modules/mocha/bin/mocha -R spec test/test-*.js",
+    "hint": "./node_modules/jshint/bin/jshint ./"
+  },
+  "dependencies": {
+    "bluebird": "^3.2.2",
+    "debug": "^2.2.0",
+    "mock-require": "^1.2.1",
+    "soap": "^0.9.1",
+    "underscore": "^1.8.3",
+    "var-type": "^1.0.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "mocha": "^2.4.5",
+    "yargs": "^3.29.0"
+  }
+}
