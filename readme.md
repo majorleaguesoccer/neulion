@@ -4,7 +4,7 @@ Neulion
 [![Build Status](https://secure.travis-ci.org/majorleaguesoccer/neulion.png)](http://travis-ci.org/majorleaguesoccer/neulion) 
 [![NPM version](https://badge.fury.io/js/neulion.png)](http://badge.fury.io/js/neulion)
 
-Neulion API wrapper for node.js
+Neulion API wrapper for node.js. Currently this is a read-only API.
 
 
 Install
@@ -225,14 +225,16 @@ api
 **Alias**: [`list`]
 
 Search for videos. Returns a list of found Neulion IDs. The `details` method must 
-be called to get the full video object.
+be called to get the full video object. Not entirely sure yet how the `progDate`
+and `updateTime` are matched in the API, they seem to return videos for the *day* 
+of the day sent. Further investigation required.
 
 * `params` - api search parameters
   - `groupId` - Number - neulion group ID (optional, uses config value from constructor if set)
-  - `progDate` - Date - limit to given day of date
+  - `progDate` - Date|String - limit to given day of date (String format: `YYYY-MM-DDTHH:mm:ss.sssZ`, `date.toISOString()`)
   - `name` - String - search by name
   - `description` - String - search by description
-  - `updateTime` - String - search by last updated (day mode?)
+  - `updateTime` - Date|String - search by last updated (String format: `yyyyMMddhhmmss`)
 
 ```js
 api
@@ -268,7 +270,7 @@ api
   .range(start, end)
   .then(function(videos) {
     /*!
-      [Number]
+      [Number, Number, ...]
      */
   })
   .catch(function(err) {
