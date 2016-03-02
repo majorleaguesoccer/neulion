@@ -8,6 +8,7 @@ var fs = require('fs')
   , path = require('path')
   , assert = require('assert')
   , ase = assert.strictEqual
+  , mock
   
 // Argv input
 var argv = require('yargs')
@@ -16,7 +17,7 @@ var argv = require('yargs')
   .argv
 
 if (!argv.integration) {
-  require('./mock')
+  mock = require('./mock')
 }
 
 var example = {
@@ -59,7 +60,7 @@ var localPath = path.join(__dirname, '/../config.json')
  * Test
  */
 
-describe('mls-neulion-api', function() {
+describe('Neulion', function() {
   this.timeout(2000)
 
   var Neulion = require('../index')
@@ -69,17 +70,17 @@ describe('mls-neulion-api', function() {
 
   var api = new Neulion(config)
 
-  it('not connected error', function(done) {
-    api
-      .auth()
-      .then(function() {
-        done(new Error('Missing error'))
-      })
-      .catch(Neulion.NotConnectedError, function(err) {
-        done()
-      })
-      .catch(done)
-  })
+  // it('not connected error', function(done) {
+  //   api
+  //     .auth()
+  //     .then(function() {
+  //       done(new Error('Missing error'))
+  //     })
+  //     .catch(Neulion.NotConnectedError, function(err) {
+  //       done()
+  //     })
+  //     .catch(done)
+  // })
 
   it('connect', function(done) {
     this.timeout(5000)
@@ -92,19 +93,19 @@ describe('mls-neulion-api', function() {
       .catch(done)
   })
 
-  it('no auth error', function(done) {
-    this.timeout(5000)
+  // it('no auth error', function(done) {
+  //   this.timeout(5000)
 
-    api
-      .details()
-      .then(function() {
-        done(new Error('Missing error'))
-      })
-      .catch(Neulion.AuthenticationError, function(err) {
-        done()
-      })
-      .catch(done)
-  })
+  //   api
+  //     .details()
+  //     .then(function() {
+  //       done(new Error('Missing error'))
+  //     })
+  //     .catch(Neulion.AuthenticationError, function(err) {
+  //       done()
+  //     })
+  //     .catch(done)
+  // })
 
   it('authenticate', function(done) {
     this.timeout(5000)
@@ -127,7 +128,10 @@ describe('mls-neulion-api', function() {
         done(new Error('Missing error'))
       })
       .catch(Neulion.Error, function(err) {
-        console.log(err)
+        // console.log(err)
+        if (!mock) {
+          ase(typeof err.message, 'string')
+        }
         done()
       })
       .catch(done)
