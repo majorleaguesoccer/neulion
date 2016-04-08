@@ -180,36 +180,36 @@ api
     /*!
       [
         {
-          altDesc: String
-        , altName: String
-        , archiveTime: String
-        , bigImage: String
-        , bigImageUrl: String
+          altDesc:         String
+        , altName:         String
+        , archiveTime:     String
+        , bigImage:        String
+        , bigImageUrl:     String
         , categoryIdArray: Array
-        , data1: String
-        , data2: String
-        , desc: String
-        , endTime: Date
-        , eventId: String
-        , extUrl: String
-        , gameId: String
-        , gameTime: String
-        , groupId: Number
-        , highlightType: String
-        , name: String
-        , progDate: Date
-        , programId: Number
-        , programType: String
-        , regRequired: Boolean
-        , shareInPlayer: Boolean
-        , smallImage: String
-        , smallImageUrl: String
-        , startTime: Date
-        , tagArray: Array
-        , updateTime: String
-        , videoName: String
-        , videoTime: Date
-        , videoUrl: String
+        , data1:           String
+        , data2:           String
+        , desc:            String
+        , endTime:         Date
+        , eventId:         String
+        , extUrl:          String
+        , gameId:          String
+        , gameTime:        String
+        , groupId:         Number
+        , highlightType:   String
+        , name:            String
+        , progDate:        Date
+        , programId:       Number
+        , programType:     String
+        , regRequired:     Boolean
+        , shareInPlayer:   Boolean
+        , smallImage:      String
+        , smallImageUrl:   String
+        , startTime:       Date
+        , tagArray:        Array
+        , updateTime:      String
+        , videoName:       String
+        , videoTime:       Date
+        , videoUrl:        String
         }
       ]
      */
